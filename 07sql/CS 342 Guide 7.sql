@@ -16,3 +16,6 @@ WHERE Casting.status = 'star';
 --2b.
 {P.firstName, P.lastName, P.id | Performer(P)}
 --2c.
+--i. Existential Quantifier(∃) - A formula that is true if there exists some tuple that fulfills the given criteria.
+--   Universal Quantifier(∀) - A formula that is true if the given criteria applies to all the tuples.
+--ii. Safe Expression - An expression that is guranteed to yield a finite number of tuples as its result.
