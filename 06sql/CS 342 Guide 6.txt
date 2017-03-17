@@ -1,0 +1,21 @@
+Chris Li
+
+CS 342
+
+3/8/17
+
+Prof. Vanderlinden
+
+1a. Select firstName, lastName
+    From (Performer JOIN Casting ON id = movieID)
+    Where status = 'star';
+
+1b. Select P.firstName AS Performer_firstName, B.firstName AS Performer_firstName
+    From (Performer AS P LEFT OUTER JOIN Performer AS B ON P.id = B.id);
+
+1c. Select COUNT(*)
+    From Movie;
+
+1d. Select title, COUNT (*)
+    From Movie
+    Group By title;

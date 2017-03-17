@@ -1,0 +1,30 @@
+Chris Li
+
+2/27/17
+
+CS 342
+
+Prof. Vanderlinden
+
+1a. Select firstName, lastName
+    From Performer
+    Where firstName = 'Harrison'
+    and lastName = 'Ford';
+
+1b. Select ID From Performer
+    Union
+    Select ID From Movie;
+
+2a. Select *
+    from Performer
+    Where lastName IS NULL;
+
+2b. Select *
+    From Performer AS P
+    Where Exists(Select *
+    From Casting as C
+    Where P.ID = C.performerID and C.status = 'star');
+
+2c. Select *
+    From Performer AS P, Casting as C
+    Where P.ID = C.performerID and C.status = 'star';
