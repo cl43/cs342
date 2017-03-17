@@ -1,0 +1,5 @@
+7.3.a
+π firstName, lastName, birthdate (PERSON)
+
+7.3.b
+{P.firstName, P.lastName, P.birthdate | PERSON(P)}
