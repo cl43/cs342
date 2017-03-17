@@ -10,3 +10,9 @@ WHERE Casting.status = 'star';
 --iii. Updateable Join Views = A joined view that can be updated by the DBMS.
 --iv. Key-Preserved Tables = A table where every key of the table can be a key of the resulted join.
 --v. Materialized View = A view that is a replica of its target master from a single point in time.
+
+--2a.
+π firstName, lastName, id (Performer)
+--2b.
+{P.firstName, P.lastName, P.id | Performer(P)}
+--2c.
