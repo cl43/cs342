@@ -1,0 +1,8 @@
+1a. Flight refers to the flight that is about to, on way, or finished. It has a ID number, specific airliner, and schedule. Flight covers the start to the destination of the journey.
+A flight leg can be considered a portion of the flight where the plane is on  the move, but not the entire trip. For example, on an international flight, a plane would fly to an airport suited for international travel.
+A leg instance is a scheduled flight leg. It is defined as a particular occurrence of a Leg on a particular date.
+
+1b. The dotted underline marks for a key for a weak entity. Weak entitys need to be identified somehow, but have no real defining key attribute of its own.
+
+1c. I think the modelers did it this way because an airplane has a limited amount of seats for travelers. Depending on the size of the plane, a set number of seats can be used either as a vip spot or just a simple reserved seat.
+Meanwhile, they might not be allowed to reserve all of the seats in a plane which is why there is a limit to reservations.

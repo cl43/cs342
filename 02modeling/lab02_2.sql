@@ -1,0 +1,3 @@
+Status is not capable of being turned into a ENUM in Oracle SQL, but may be doable in MySQL. The syntax for such would be status ENUM('star', 'costar', 'extra').
+With that in mind, a check constraint is the only way to do that for Oracle. ENUM would only be used for information that is hard-coded and unchanging. In the situation for casting status,
+it would be useful there since there is not many opportunities for status to either lose or gain an option.

@@ -1,0 +1,55 @@
+Chris Li
+
+CS 342
+
+Prof. Vanderlinden
+
+3/3/2017
+
+1a. I believe this table is in 1NF. None of the attributes seem to be designed for carrying multiple values. Potentially
+Author_name may be able to but it is most likely designed for simply a first name as there is no implication for holding
+a value for the last name as well. Because it is not in BCNF, it cannot be in 4NF. The FD's left hand sides are not all
+super keys, therefore it is not in BCNF.
+
+1b.
+Book(Book_title, Author_name, Book_type, List_Price, Author_affil, Publisher)
+
+FDs:
+Book_title -> Publisher, Book_type
+Book_type -> List_price
+Author_name -> Author_affil
+
+
+Lets say our target is to make this schema become BCNF. None of the FDs are trivial, but not alll are super keys as well.
+To fix that, we would have to make additional tables to make each left-hand side a super-key. The following FD left-hand
+sides are Book_title, Book_type, and Author_name.
+
+Author_Name is super-key here. The table carries all of Author-relevant attributes.
+Author(Author_name,Author_affil);
+
+Book_title is super-key here. The table carries all book-relevant attr.
+Book(Book_title,Book_type,,Publisher);
+
+This is separated into another table in order to make the book_type a super-key, List price is included since it is dependant.
+Booktype(Book_type,List_Price);
+
+Breaking down to these three tables should bring the schema to BCNF.
+
+2a. The potential candidate keys are:
+Book_Name,Author,Edition,Copyright_Year
+Book_Name,Author,Edition
+Book_Name,Author,Copyright_Year
+
+2b. Whenever an attribute has another value such as Author containing Navanthe and Elmasri, the values of edition and year are
+repeated for every author that was a part of the book.
+
+2c. 
+Book(ID,Book_Name,Edition,Copyright_Year)
+Author(ID,Author_Name)
+BookAuthor(BookID,AuthorID)
+
+FD:
+Book(ID->Book_Name,Edition,Copyright_Year)
+Author(ID->Author_Name)
+
+The schema is in BCNF due to non-trivial FDs and left-hand sides are super-keys. It also has no MVDs so it is in 4NF as well.

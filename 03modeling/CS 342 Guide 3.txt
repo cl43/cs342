@@ -1,0 +1,14 @@
+Chris Li
+CS 342
+Prof. Vanderlinden
+2/12/17
+
+Guide 3
+
+1a. Database design processes are fairly similar to software design in terms of what must be done but differs in which stage it is done at. However, there are some stages that are exclusive to the respective design process. Both design processes can be summarized into a 5 stage process. Software design processes go as: Planning and Analysis, Design, Development and Implementation, Testing, and Maintenance. Meanwhile, Database design process goes as: Requirements Collection and Analysis, Conceptual design, Data Model Mapping, Physical Design, and Database Implementation. Agile modeling practices should be applicable to a database due to Agile having an emphasis on having information that is relevant to the situation at hand and no speculation (i.e. Stakeholders, documentation style, model design).
+1b. An entity is an object that physically or conceptually exists. They carry many attributes that describe what the entity is.
+       A relationship in a database is similar to an attribute, but it serves as a reference for foreign keys that are linked to primary keys. Relationships have cardinality which specifies how many relationships an entity can participate in. They also have a participation constraint which serves as a minimum of how many relationships must exist.
+     An attribute is a property that describes the entity. Name, age, address, and phone-number are good examples of an attribute to a person entity.  Simple attributes cannot be divided such as name. Composite attributes can be like Address being divided into street city, state, zip. Multivalued attributes are attributes with multiple values such as a person is able to have many hobbies. Derived attributes are attributes that are inferred from other stated attributes such as determining a person’s age by looking at their birthdate.
+1c. Weak entities are entities that do not have any key attributes of their own. Identifying relationships are the relationships that link a weak entity to its owner.
+
+2b. You would transform the classes into tables, attributes into columns, and relationships into foreign keys.

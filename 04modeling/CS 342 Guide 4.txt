@@ -1,0 +1,23 @@
+Chris Li
+CS 342
+Prof. Vanderlinden
+2/19/17
+Guide 4
+
+1a. Making semantics clear is important because vague or hard to read we could get faulty or misdirected data information. 
+    Reducing the amount of data a database stores by clearing out some of the obvious or repeated information.
+    Null reduces the understanding of attributes in a database and make the tables much less joinable.
+    Spurious tuples are additional tuples that were not originally in the previous table and is not valid.
+
+b.  Functional Dependency is a constraint between two sets of attributes from the database.
+    Multivalued Dependency - Where both X and Y are subsets of relation schema R, specifies the relation state r of R.
+
+c.  Superkey - A key of a relational data schema that no tuples with have a copy of such key.
+    Key - A superkey with additional properties that if any attribute is removed will cause the key to no longer be super.
+
+d.  Boyce-Codd normal form - A relation schema that whenever a nontrivial functional dependency X>A holds inside the schema, X is the superkey of the schema.
+    4NF - A relation schema R is in 4NF with a respect to a set of dependencies of functional and multivalued. If for every nontrivial multivalued dependency X>>Y in F, X is a superkey for R.
+
+
+e.  One may want to normalize a relational schema in order to improve the database as it improves and checks the integrity; alongside reducing redundancies.
+    Denormalization apparently improves the performance of the database.

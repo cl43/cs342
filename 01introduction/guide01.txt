@@ -1,0 +1,48 @@
+Chris Li
+CS 342
+Prof. Vanderlinden
+2/1/17
+Guide 1 Assignment
+
+1a. Data - the facts that we can store inside a database. These facts can be names, id 
+number, telephone number, address, etc. for example.
+      Database – A collection of data. It often stores a specific subject of content of data 
+for a specific purpose. Such as a mobile phone storing contact information to help the 
+user find people.
+      Database Management System – A system that deals with creating, editing, deleting, 
+and other maintenance of a database. 
+      Information System – An organized network that collects and distributes data. It 
+deals with the transfer of data.
+
+1b. Standard data structures such as lists and arrays contain data but are often 
+inefficient when it comes to searching through and retrieving data. One must search 
+through each slot of data until the desired piece of data is found. Databases are quickly 
+capable of finding the desired data via queries and relevant searching.
+      The database approach defines data one and contains it in one space. Users then 
+access it via queries. File systems are redundant in comparison as it has to contain 
+separate files about the same thing due to each piece of information being branched off 
+to its most relevant category.
+
+1c. Database Admins, Designers, System Analysts, Programmers.
+
+2a. Having different categories of data models allows for the database structure to be 
+easily understood by users as with High-level or conceptual data models, but also 
+explains how the data is truly stored within the computer. Figure 2.1 is a Relational 
+database. It uses schema type data and defines each attribute and its relationship to the 
+database,
+
+2b. The three-schema architecture is to separate the user functions from the physical 
+database. It starts with an internal level which uses an internal schema to define 
+physical storage structure and access paths for the database. The next level is the 
+conceptual level which shares info regarding the structure of the database to users. It 
+describes data entities such as data types, relationships, user operations, and 
+constraints. It hides information about the physical storage space. Lastly, the external 
+level describes which part of the database that a user would be interested in and 
+conceals the rest of the data information.
+
+2c. In a standard two-tier architecture, one of the tiers would be the client side which 
+deals with UI and local processing. The other tier is the server side which contains the 
+hardware and software to provide service to all clients that attempt to contact it. In a 
+three-tier architecture, there is a middle tier known as an application server. They often 
+run applications and store procedures. These can serve as a security check when 
+attempting to access data from the server side by requiring credentials from the user.
