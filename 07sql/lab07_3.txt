@@ -1,5 +1,8 @@
+SELECT firstName, lastName, birthDate
+FROM Person;
+
 7.3.a
-π firstName, lastName, birthdate (PERSON)
+π firstName, lastName, birthDate (Person)
 
 7.3.b
-{P.firstName, P.lastName, P.birthdate | PERSON(P)}
+{P.firstName, P.lastName, P.birthDate | Person(P)}
