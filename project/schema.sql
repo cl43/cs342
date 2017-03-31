@@ -7,17 +7,17 @@ create table Employee(
 	paycheck Integer
 );
 
-create Loans(
+create table Loans(
 	ID integer PRIMARY KEY,
 	amount integer,
 	createDate date,
 	dueDate date,
-	paid boolean,
+	paid varchar(1) NOT NULL,
 	employeeID integer,
 	FOREIGN KEY (employeeID) REFERENCES Employee(ID)
 );
 
-create Customer(
+create table Customer(
 	ID integer PRIMARY KEY,
 	name varchar(30),
 	address varchar(30) NOT NULL,
@@ -25,13 +25,13 @@ create Customer(
 	zip integer NOT NULL
 );
 
-create Vehicle(
+create table Vehicle(
 	ID integer PRIMARY KEY,
 	model varchar(30),
 	condition varchar(30)
 );
 
-create Order1(
+create table Order1(
 	ID integer PRIMARY KEY,
 	orderDate date,
 	deliverDate date,
@@ -45,21 +45,21 @@ create Order1(
 );
 
 CREATE SEQUENCE Order1_sequence
-start with 0
+start with 1
 increment by 1
 NOCACHE;
 
-create Item(
+create table Item(
 	ID integer PRIMARY KEY,
 	name varchar(30),
 	price integer,
 	stock integer
 );
 
-create OrderItem(
+create table OrderItem(
 	orderID integer,
 	itemID integer,
 	quantity integer,
 	FOREIGN KEY (OrderID) REFERENCES Order1(ID) ON DELETE CASCADE,
-	FOREIGN KEY (ItemID) REFERENCES Item(ID) ON DELETE SET CASCADE
+	FOREIGN KEY (ItemID) REFERENCES Item(ID) ON DELETE CASCADE
 );
