@@ -35,6 +35,8 @@ create table Order1(
 	ID integer PRIMARY KEY,
 	orderDate date,
 	deliverDate date,
+	dueDate date,
+	status varchar(10),
 	price integer,
 	employeeID integer,
 	customerID integer,

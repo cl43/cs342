@@ -20,10 +20,11 @@ INSERT INTO Vehicle VALUES (0,'Ford Delivery Truck','Working');
 INSERT INTO Vehicle VALUES (1,'Honda Delivery Truck','Working');
 INSERT INTO Vehicle VALUES (2,'Dodge Semi-Truck','Out of Gas');
 
-INSERT INTO Order1 VALUES (0,'17/NOV/16','18/NOV/16',8,2,0,0);
-INSERT INTO Order1 VALUES (1,'17/NOV/16','18/NOV/16',24,2,1,0);
-INSERT INTO Order1 VALUES (2,'20/JAN/17','21/JAN/17',35,3,2,1);
-INSERT INTO Order1 VALUES (3,'29/MAR/17',SYSDATE,8,2,0,0);
+INSERT INTO Order1 VALUES (0,'17/NOV/16','18/NOV/16','18/NOV/16','Complete',8,2,0,0);
+INSERT INTO Order1 VALUES (1,'17/NOV/16','18/NOV/16','18/NOV/16','Complete',24,2,1,0);
+INSERT INTO Order1 VALUES (2,'20/JAN/17','21/JAN/17','22/JAN/17','Complete',35,3,2,1);
+INSERT INTO Order1 VALUES (3,'29/MAR/17',NULL,SYSDATE,'Incomplete',8,3,0,0);
+INSERT INTO Order1 VALUES (4,'14/MAR/17',NULL,'15/MAR/17','Incomplete',8,3,0,0);
 
 INSERT INTO Item VALUES (0,'Bean Sprout',8,20);
 INSERT INTO Item VALUES (1,'Brocoli',11,10);
