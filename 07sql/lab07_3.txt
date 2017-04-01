@@ -1,4 +1,4 @@
-SELECT firstName, lastName, birthDate
+﻿SELECT firstName, lastName, birthDate
 FROM Person;
 
 7.3.a

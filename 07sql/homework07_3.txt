@@ -1,0 +1,8 @@
+﻿3a.
+π employee_id, first_name, last_name, email, hire_date, department_name (Employees.department_id = Departments.department_id)
+
+{E.employee_id, E.first_name, E.last_name, E.email, E.hire_date, D.department_name | Employees(E) ^ Departments(D) ^ E.department_id = D.department_id}
+
+3b.
+
+{E.first_name, E.last_name, E.employee_id | employee_view(E) ^ employee_view(E2) ^ E.department_name = 'Executive' ^ E.hire_date < E2.hire_date}
