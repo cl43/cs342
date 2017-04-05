@@ -1,0 +1,16 @@
+1a. Embedded database commands in a general-purpose programming language
+    Using a library of database functions or classes.
+    Designing a brand-new language
+
+1bi. The moment the database model has conflicts with the programming language model.
+ ii. A stored database module. It is similar to a function.
+iii. An action that occurs when a specific case ends up happening.
+
+2ai. Procedural is difficult to learn and debug and is file-oriented while non-procedural isnt and is database oriented.
+ ii. Client-side is used to embed SQL statements in applications written in procedural languages. Server-side develops data logic.
+
+2b. PL/SQL is integrated with the database and invokes stored subprograms in the database which is why its better in serverside.
+
+2ci. This is a procedure. It is similar to a function and does what it is programmed.
+ ii. It is an anonymous block. It is mainly done one time.
+iii. This is a trigger. When an event happens where the condition is fulfilled, the command runs.
