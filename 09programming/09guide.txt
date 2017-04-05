@@ -1,0 +1,11 @@
+1ai. B- Tree has additional constraints that ensure it is always balanced and deleted space doesnt become excessive.
+     B+ Tree displays every value of the search at some level.
+ ii. All of the leaf nodes are at the same level.
+iii. Tree pointer - A pointer to another node in the B- tree.
+     Data pointer - A pointer to the record whose search key field value is equal to Ki.
+
+1b. A multiple-attribute index is an index that contains multiple attributes.
+1c. A hash index is a secondary structure that accesses the file by using hashing on the search key.
+    A bitmap index facilitates querying on multiple keys.
+1di. Physical database design is about where and how data is stored on disk.
+ ii. 
