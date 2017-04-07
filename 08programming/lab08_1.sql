@@ -3,6 +3,7 @@ CREATE PROCEDURE addRole(actorIDIn IN Actor.ID%type, movieIDIn IN Movie.id%type,
 BEGIN
 	INSERT INTO Role(actorId, movieId, role) VALUES(actorIDIn, movieIDIn, roleIn);
 END;
+/
 
 --Creating the Exclusive Actor trigger and limiting 230 movies.
 CREATE TRIGGER MovieLawEnforcement BEFORE INSERT ON Role FOR EACH ROW --Initializing
@@ -31,18 +32,22 @@ EXCEPTION --Exception errors for when the rules are broken.
 	WHEN over230 THEN
 		RAISE_APPLICATION_ERROR(-20001, 'Movie has over 230 castings.' || :new.movieId);
 END;
+/
 
 --8.1a
 BEGIN
 	addRole(89558,238072,"Danny Ocean");
 END;
+/
 
 --8.1b
 BEGIN
 	addRole(89558,238073,"Danny Ocean");
 END;
+/
 
 --8.1c
 BEGIN
 	addRole(89558,167324,"Danny Ocean");
 END;
+/

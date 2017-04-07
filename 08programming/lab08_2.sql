@@ -6,16 +6,17 @@ CREATE TABLE SequelsTemp (
  );
  
 CREATE OR REPLACE PROCEDURE getSequels (movieidIn IN Movie.id%type) AS
-		CURSOR sequelsOut IS
-			SELECT sequelId
-			FROM Movie
-			WHERE id = movieIdIn;
+	CURSOR sequelsOut IS
+		select S.Id, S.name
+		from Movie M, Movie S
+		where M.id = movieIdIn
+		and M.sequelId = S.id;
 	BEGIN
-		FOR sOut IN sequelsOut LOOP
-			INSERT INTO SequelsTemp(SELECT id, name FROM Movie WHERE id = sOut.sequelID);
-			getSequels(sOut.sequelID);
-	END LOOP;
-END;
+		FOR sOut IN sequelsOut LOOP	
+			INSERT INTO SequelsTemp VALUES (sOut.id, sOut.name);	
+			getSequels(sOut.Id);			
+		END LOOP;
+	END;
 /
 
 -- Get the sequels for Ocean's 11, i.e., 4 of them.
