@@ -1,0 +1,27 @@
+1a. Interleaving - Takes turns on processes, pausing one to resume the other and keeping them in equal progress
+    Parallel - Runs all processes simulatenously if possible
+
+ b. Lost Update - When two transactions that access the same DB item have their operations interleaved so that some DB values are incorrect
+    Dirty Read - When a transaction updates a DB item and then the transaction fails for given reason.
+
+ c. Transaction - An atomic unit of work that should either be completed in its entirety or not done at all.
+    Commits - When all operations to access a DB are successful and are logged.
+    Rollback - Search for all transactions that are logged, but have not written their commit record yet.
+
+ d. Atomicity - Transaction should be performed in its entirety or not at all.
+    Consistency preservation - If a transaction is completed with no interference, then it should take the database from one consistent state to another.
+    Isolation - A transaction should appear as if it is insolated to other transaction executions.
+    Durability - The changes to a DB by a transaction must persist.
+
+ e. Schedule - Ordering of the operations of the transaction.
+
+2a. Lock - A variable associated with a data item that describes the status of the item with respect to possible operations that can be applied to it.
+
+ b. Two-phase locking - If all locking operations precede the first unlock operation in a transaction.
+
+3a. Savepoint - Names and marks the current point in the processing of a transaction.
+    Commit - Ends the current transaction and makes any changes permanent.
+    Rollback - Ends the current transaction and undoes any changes made.
+
+ b. Lock Table - lock an entired database table so that you can share or deny access.
+    For Update - identifies the rows that will be updated or deleted and then locks each row in the result set.
