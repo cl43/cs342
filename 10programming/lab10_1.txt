@@ -1,0 +1,12 @@
+10.1.a
+
+Oracle indeed does handle the transaction life-cycle to starting an stoppind sql sessions.
+Oracle sessions will not see the effects of other on-going sessions until a commit or rollback
+has been committed.
+
+10.1.b
+
+Atomicity can probably be done with commands such as commit and rollback as they often are all or nothing commands.
+Consistency would not be done by commands themselves, but more by the DBMS instead.
+Isolation would be more difficult as commits and rollbacks tend to have effects on other on-going sessions within sql.
+Durability would be handled by the DBMS as well.
