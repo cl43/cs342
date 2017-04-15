@@ -5,4 +5,4 @@ UPDATE Movie
 SET rank = rank - 0.1
 WHERE id = 238071;
 
---Expected rank is 8.4, but 8.5 is still the current rank.
+--Expected rank is 8.4, but 8.6 is the current rank.

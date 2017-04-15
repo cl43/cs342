@@ -1,0 +1,11 @@
+SELECT rank FROM Movie
+WHERE id = 238071;
+
+UPDATE Movie
+SET rank = rank - 0.1
+WHERE id = 238071;
+
+8.6 is still the rank we are given after running this script. It is probably because script 1
+has already put its update into effect, leaving rank at 8.7, therefore when we subtract is by 8.7
+you would still get 8.6. The second script doesnt seem to be all that different, probably because it
+is simply subtracting. It seems commit just puts the Isolation of the ACID properties into effect.

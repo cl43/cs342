@@ -1,0 +1,12 @@
+SELECT rank FROM Movie
+WHERE id = 238071;
+
+UPDATE Movie
+SET rank = rank + 0.2
+WHERE id = 238071;
+
+commit;
+
+Because AUTOCOMMIT is off, the other session will not be able to influence this table until the
+commit command has been rolled out. After that, the other session may influence the table. This
+command here would set the movie rank to 8.7 since the other session cannot subtract while this is adding.
