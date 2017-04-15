@@ -1,0 +1,8 @@
+SELECT rank FROM Movie
+WHERE id = 238071;
+
+UPDATE Movie
+SET rank = rank - 0.1
+WHERE id = 238071;
+
+--Expected rank is 8.4, but 8.5 is still the current rank.
