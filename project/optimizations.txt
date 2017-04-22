@@ -1,0 +1,42 @@
+SELECT E.id, SUM(L.amount)
+FROM Employee E, Loans L
+WHERE L.employeeID = E.ID
+AND L.paid = 'N'
+GROUP BY E.id;
+
+CREATE INDEX employeeLoan ON Employee(id);
+
+
+        ID SUM(L.AMOUNT)
+---------- -------------
+         4            30
+         5            80
+         3             1
+
+Elapsed: 00:00:00.00
+
+Execution Plan
+----------------------------------------------------------
+Plan hash value: 2597811120
+
+----------------------------------------------------------------------------
+| Id  | Operation          | Name  | Rows  | Bytes | Cost (%CPU)| Time     |
+----------------------------------------------------------------------------
+|   0 | SELECT STATEMENT   |       |     3 |    84 |     4  (25)| 00:00:01 |
+|   1 |  HASH GROUP BY     |       |     3 |    84 |     4  (25)| 00:00:01 |
+|*  2 |   TABLE ACCESS FULL| LOANS |     3 |    84 |     3   (0)| 00:00:01 |
+----------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - filter("L"."EMPLOYEEID" IS NOT NULL AND "L"."PAID"='N')
+
+Note
+-----
+   - dynamic sampling used for this statement (level=2)
+   
+This query is to determine the sum of all the loans that each employee owes that has not been paid.
+An index has no effect and is not used because oracle thinks it is better to just run on the full table access instead.
+This is probably because oracle has to go through all of the rows that belong to matching employee, check whether its
+been paid or not, and then sum it all up.

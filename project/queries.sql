@@ -36,17 +36,19 @@ RIGHT OUTER JOIN Customer ON Order1.customerID = Customer.ID;
 --The query is to show the list of orders, their contents, and to who the order goes to.
 --This query would be useful for the book keepers of the company to keep track of purchases.
 
-SELECT TRUNC(SUM(Employee.paycheck))
-FROM Employee;
+SELECT E.id, SUM(L.amount)
+FROM Employee E, Loans L
+WHERE L.employeeID = E.ID
+AND L.paid = 'N'
+GROUP BY E.id;
 
---The aggregate function query is to determine the sum of the paycheck.
+--The aggregate function query is to determine the sum of all the loans that the employees owe.
 --It is most likely going to be used by the boss and whoever is in charge of payroll
 
 CREATE VIEW loan_paycheck AS
-	SELECT L.ID, L.amount, L.createDate, L.dueDate, E.FName, E.LName, E.paycheck
-	FROM Loans L, Employee E
-	WHERE L.paid = 'N';
+	SELECT L.ID, L.amount, L.createDate, L.dueDate, L.paid, E.FName, E.LName, E.paycheck
+	FROM Loans L, Employee E;
 	
 --The view is to look at loans, their creation and due dates, whether they are paid of not, and which employee owed money and his paycheck.
 --The boss would use this to keep track of the loans and how much money to deduct for the borrowing employee's pay.
---A regular view is used since this view's purpose is to simply retrieve records of loans.
+--A regular view is used since this view's purpose is to handle the record of loans. The paid column is updatable which is why a materialized view isn't used.
