@@ -1,0 +1,22 @@
+1a. Client Tier - is usually the application itself. It accesses the server from a different machine by making requests.
+    Web Tier - The components that handle the interaction of the clients and business tiers.
+    Business Tier - Components that provide the code and functionality for the different domains.
+    Enterprise Tier - database servers, enterprise resource planning systems, and other data sources.
+    J2EE focuses on web  tier and Oracle Database focuses on enterprise tier.
+ b. J2EE containers server as an interface between the components and the functionality provided by the platform.
+    Web containers, EJB containers, and Application Client Containers.
+
+2a. JPA - collection of classes and methods to store large amounts of data.
+    JTI - enables transactions to be done across the Java environment.
+    JAX-RS - programming language designed to easily develop apps that use REST.
+    JDBC - API that can access any kind of tabular data.
+    JAXB - software framework that allows JAVA developers to map Java classes to XML representations.
+ b. JAR - it is a package file format used to aggregate many Java class files and other files into one for distribution.
+    WAR - A JAR file that is used to distribute JavaServer Pages, Java Servlets, classes, XML files, and other web app stuff.
+    EAR - file format used by Java EE for packing modules into a single archive for simultaneous and coherent deployment.
+
+3a. IntelliJ IDEA 2016.3
+ b. J2SE - allows the building of Java apps.
+    JDK - Java development kit, it gives the user many programming componenets.
+    Glassfish - open-source app server.
+ c. REST services are stateless and use HTTP methods explicitly.
