@@ -1,0 +1,14 @@
+c. J2SE - It is the JDK 1.8 and has the Java libraries.
+   J2EE - This is GlassFish 4.1. It contains many APIs.
+
+d. This application runs at web tier. The user uses a browser that is in client tier.
+
+e. The URL tells us localhost:8080. I imagine that localhost is the glassfish server and 8080 is the port.
+   A typical webserver deals with http requests while GlassFish handles J2EE.
+
+f. A WAR files is a web application archive. It is a JAR file used to distribute a collection of server and web app things. 
+
+g. Unexploded means that the WAR is not decompressed while exploded means that it is decompressed.
+
+h. EAR artifacts contain both .war and .jar files.
+   WAR artifacts contain pages, servelets, and other web app goods.
