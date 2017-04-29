@@ -1,0 +1,22 @@
+12.1
+1. The JDBC connection we built allows us entry into the database. It is an API that connects to a Oracle database inside of the system;
+meanwhile, Glassfish is able to connect to the database by creating a web server for us. Both are needed.
+
+12.2
+1. IntelliJ creates a java class for each database table. They use private to initialize the attributes as variables. They then use accessor functions
+to obtain the variables from Oracle and have another. They have a set function for each attribute as well to perform updates I imagine.
+
+2. The PK class deals with mapping the relationships and joining tables. It contains the foreign keys such as PERSONID and TEAMNAME.
+
+3. IntelliJ defaults to property annotations due to the usage of get and set functions.
+
+12.3
+1. Yes it performs marshalling. The marshalling takes the object values from the database and converts it into a JSON format.
+getPerson and getPeople would be prime examples.
+
+2. Yes. The code injection allows the entity manager import to work inside the CPDBResource class. Hence why it is formed as a variable.
+
+3. The entity manager creates queries.
+
+12.4
+1. It returns the values of those entities through JSON conversion as a JSON object inside of the person entity.
