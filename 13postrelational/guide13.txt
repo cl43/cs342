@@ -1,0 +1,22 @@
+1a. Programmers are sick of dealing with impedence mismatch between the relational data structures and in-memory data structures of the application.
+    Encapsulating databases with apps and integrating using services are becoming more popular.
+    Rise of the web as a platform.
+
+ b. Aggregate Data Models - A collection of data that we interact with as a unit.
+
+ c. Polyglot Persistance - Does not use the relational model, runs well of clusters, mostly open source, built for 21st century web estates and schema-less.
+ 
+ d. CAP Theorem - Manages between consistency, availability, and partition tolerance in a distributed system.
+
+ e. Key-Value Databases - Client can get either value for the key, put a value for a key, or delete key.
+    Document Databases - Database that stores and retrieves documents which can be XML, JSON, BSON, etc.
+    Column Family Databases - Database that stores data in column families as rows that have many columns associated with a row key.
+    Graph Databases - Allows the user to store entities and relationships between nodes.
+
+ f. Use NoSQL if you want to improve programmer productivity and improve data access performance.
+    Do not use NoSQL is there are many different entities or when there is very complex relations.
+
+2a. Major Key - Identifies the entity and is the leading components of the key.
+    Minor Key - Other components of the key.
+
+ b. 
