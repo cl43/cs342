@@ -43,6 +43,8 @@ public class Person {
 
     @Id
     @Column(name = "ID")
+    @GeneratedValue(generator = "cpdbSequence")
+    @SequenceGenerator(name = "cpdbSequence", sequenceName = "cpdb_sequence", allocationSize = 1)
     public long getId() {
         return id;
     }
