@@ -1,0 +1,20 @@
+13.1.
+     a.
+	Store.put(key, value) - creates a key and stores a value with it.
+	EM.persist() - Makes an instance managed and persistent.
+     b.
+	Store.put() stores a key and value pair in KVLite DB. myHashTable.put() places the key and value in a hash table.
+
+13.2.
+     a.
+	KVLite Keys support one-to-many in terms of relationships with other entities.
+	Relational database can one-to-many and perform many-to-many which KVLite cannot do without much difficulty.
+
+13.3.
+     a.
+	In order for a key-value database to implement the one-to-many(n) join, the key must be reimplemented for how many times n causes the
+	key to join. This would result in much redundant information, very much like the PersonTeam table earlier in the course.
+     b.
+	If a person desires to have a key created but has no current use for it, then they may create an empty value. The value may alleviate some
+	memory used because the key doesn't actually store anything. It is similar to calling an instance variable, but not yet assigning any value
+	to it.
