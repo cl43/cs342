@@ -1,0 +1,5 @@
+2.a. KvLite is a NOSQL database system that is based on key/value data model.
+  b. I would user the Column Family stores. It is the most similar to the Relational database model which is what mySQL is created with in mind.
+  c. It should be doable. You would have to reverse the keystructure to grab movies that are affiliated with the actor. It would take much longer to do however
+     as a movie probably has less actors, then all of the movies that a given actor has starred in.
+  d. There isn't a schema for this at all. There is no table or relationships like the usual Oracle SQL. You simply create keys and apply a value to it.
