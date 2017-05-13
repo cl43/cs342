@@ -1,0 +1,9 @@
+For the NOSQL part, the LoadDB.java loads up information about order's date and overall price, the Item's name, price, and stock,
+and the quantity of each item bought in the order. GetSortedItem.java brings up all of the items in the stockhold of the company,
+but orders them based on the price. GetOrderItem.java brings up order id and the information of each item that is involved in that
+order. This NOSQL solution allows people who desire to query these keys to receive information regarding the contents of the order. 
+
+Personally, I don't think that NOSQL Is as good as Oracle SQL for this type of database. The most crucial part of the company, the orders,
+probably has the most entries and is the backbone of how the company makes profit. This is an issue because the order table is also the one
+with the most relationships, as if it was the center-piece of the entire schema. Because NOSQL is not as efficient as relationships and with
+one-to-many and many-to-many, it would not be as useful for this database.
