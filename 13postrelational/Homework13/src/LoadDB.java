@@ -82,14 +82,14 @@ public class LoadDB {
         ArrayList<ArrayList<String>> movieValues = new ArrayList<>();
         ArrayList<ArrayList<String>> actorValues = new ArrayList<>();
         while (resultSet.next()) {
-            Key movieKey = Key.createKey(Arrays.asList("Movie", resultSet.getString(1)), Arrays.asList("Actor", resultSet.getString(2)));// Movie is major key, actor is minor key.
+            Key movieKey = Key.createKey(Arrays.asList("movie", resultSet.getString(1)), Arrays.asList("actor", resultSet.getString(2)));// Movie is major key, actor is minor key.
             if(!movieKeys.contains(movieKey)){
                 movieKeys.add(movieKey);
                 movieValues.add(new ArrayList<>());
             }
             movieValues.get(movieKeys.indexOf(movieKey)).add(resultSet.getString(3));
 
-            Key actorKey = Key.createKey(Arrays.asList("Actor", resultSet.getString(2)), Arrays.asList("Movie", resultSet.getString(2)));//Actor is major key here, Movie is minor.
+            Key actorKey = Key.createKey(Arrays.asList("actor", resultSet.getString(2)), Arrays.asList("movie", resultSet.getString(2)));//Actor is major key here, Movie is minor.
             if(!actorKeys.contains(actorKey)){
                 actorKeys.add(actorKey);
                 actorValues.add(new ArrayList<>());

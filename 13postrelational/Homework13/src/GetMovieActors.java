@@ -18,7 +18,7 @@ public class GetMovieActors {
 
     public static void output(KVStore store){
         System.out.println("Movie ID: 92616");
-        Key majorKeyPathOnly = Key.createKey(Arrays.asList("movie", "92616"), Arrays.asList("actor"));
+        Key majorKeyPathOnly = Key.createKey(Arrays.asList("movie", "92616"), Arrays.asList("actors"));
         Map<Key, ValueVersion> fields = store.multiGet(majorKeyPathOnly, null, null);
         String fieldFName = " ", fieldLName = " ";
         for (Map.Entry<Key, ValueVersion> field : fields.entrySet()) {
