@@ -1,0 +1,3 @@
+The information that REST service involves taking the values of the attributes of all orders that is stored in the database. It converts the info
+to JSON format and makes it appear on the web. The reason this is useful is because the server handles orders. The company will be able to pull information about specific orders, look at all
+orders that are currently in the DB from the web, update currently open orders, create new orders, and delete cancelled orders.
