@@ -3,18 +3,20 @@ create table Employee(
 	ID integer PRIMARY KEY,
 	FName varchar(30),
 	LName varchar(30),
-	position varchar(30),
-	paycheck Integer
+	position varchar(30) NOT NULL,
+	paycheck Double,
+	CHECK (paycheck < 8.90)
 );
 
 create table Loans(
 	ID integer PRIMARY KEY,
 	amount integer,
-	createDate date,
-	dueDate date,
+	createDate date NOT NULL,
+	dueDate date NOT NULL,
 	paid varchar(1) NOT NULL,
 	employeeID integer,
-	FOREIGN KEY (employeeID) REFERENCES Employee(ID)
+	FOREIGN KEY (employeeID) REFERENCES Employee(ID),
+	CHECK (amount < 0)
 );
 
 create table Customer(
@@ -33,9 +35,9 @@ create table Vehicle(
 
 create table Order1(
 	ID integer PRIMARY KEY,
-	orderDate date,
-	deliverDate date,
-	dueDate date,
+	orderDate date NOT NULL,
+	deliverDate date NOT NULL,
+	dueDate date NOT NULL,
 	status varchar(10),
 	price integer,
 	employeeID integer,
@@ -43,7 +45,9 @@ create table Order1(
 	vehicleID integer,
 	FOREIGN KEY (employeeID) REFERENCES Employee(ID) ON DELETE SET NULL,
 	FOREIGN KEY (customerID) REFERENCES Customer(ID) ON DELETE CASCADE,
-	FOREIGN KEY (vehicleID) REFERENCES Vehicle(ID) ON DELETE SET NULL
+	FOREIGN KEY (vehicleID) REFERENCES Vehicle(ID) ON DELETE SET NULL,
+	CHECK (price < 0),
+	CHECK (status in ('Complete', 'Incomplete'))
 );
 
 CREATE SEQUENCE Order1_sequence
@@ -55,7 +59,9 @@ create table Item(
 	ID integer PRIMARY KEY,
 	name varchar(30),
 	price integer,
-	stock integer
+	stock integer,
+	CHECK (price < 0),
+	CHECK (stock < 0)
 );
 
 create table OrderItem(
@@ -63,5 +69,6 @@ create table OrderItem(
 	itemID integer,
 	quantity integer,
 	FOREIGN KEY (OrderID) REFERENCES Order1(ID) ON DELETE CASCADE,
-	FOREIGN KEY (ItemID) REFERENCES Item(ID) ON DELETE CASCADE
+	FOREIGN KEY (ItemID) REFERENCES Item(ID) ON DELETE CASCADE,
+	CHECK (quantity < 0)
 );
