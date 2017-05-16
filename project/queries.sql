@@ -5,14 +5,15 @@ JOIN Vehicle V ON O.vehicleID = V.ID
 WHERE O.dueDate <= SYSDATE AND O.status <> 'Complete' AND deliverDate IS NULL;
 
 --The query returns the Employee and vehicle that is in charge of any overdue and incomplete orders along with the customer.
---This query is intended for employees that are in charge of delivering orders that are due today.
+--This query is intended for employees that are in charge of delivering orders that are due today. That way orders will not missed,
+--and the customers will not have problems with the company.
 
 SELECT L.ID, L.amount, E.FName, E.LName, E.paycheck
 FROM Loans L, Employee E
 WHERE L.paid = 'N' AND L.employeeID = E.ID AND L.dueDate < SYSDATE;
 
 --The query returns the ID, amount of any unpaid loans that are due today or overdue and the name and paycheck of the employee that owes said loan.
---This query is designed for the boss of the company, who is the one lending the loans.
+--This query is designed for the boss of the company, who is the one lending the loans. This is crucial to ensure that the loans are eventually paid off.
 
 SELECT * FROM(
 SELECT * FROM Vehicle
@@ -27,7 +28,8 @@ FROM Employee A, Employee B
 WHERE A.paycheck < B.paycheck;
 
 --The query is a self-join query that compares employee paycheck.
---It may be useful to whoever is in charge of payroll.
+--It may be useful to whoever is in charge of payroll. Umm bragging rights I guess?
+--(Thinking about it now, I don't see much purpose for this one. I'll keep it for the sake of having it.)
 
 SELECT O1.ID, O1.dueDate, O2.ID, O2.dueDate
 FROM Order1 O1, Order1 O2
@@ -55,7 +57,8 @@ AND L.paid = 'N'
 GROUP BY E.id;
 
 --The aggregate function query is to determine the sum of all the loans that the employees owe.
---It is most likely going to be used by the boss and whoever is in charge of payroll.
+--It is most likely going to be used by the boss and whoever is in charge of payroll. It will help
+--keep track of what they over if they have borrowed multiple times before paying off past loans.
 
 CREATE VIEW loan_paycheck AS
 	SELECT L.ID, L.amount, L.createDate, L.dueDate, L.paid, E.FName, E.LName, E.paycheck
