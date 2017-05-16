@@ -12,7 +12,7 @@ BEGIN
 	FROM orderItem OI, Item I
 	WHERE OI.itemId = I.id;
 	
-	IF 5 > itemCount THEN
+	IF orderCount > itemCount THEN
 		raise maxItem;
 	END IF;
 	EXCEPTION
@@ -22,6 +22,9 @@ END;
 	/
 show errors;
 --This trigger is to make sure that customers do not order something larger than what the company has available.
+--For example, lets say the company has only 5 bags of beansprout left. A customer orders 10 bags of beansprout.
+--The order will not be able to be completed due to a shortage of beansprout. That way the customer will know about
+--The limit that they currently have on their order.
 
 INSERT INTO OrderItem VALUES (0,1,1);
 --Order quantity does not exceed stock.
@@ -47,6 +50,9 @@ BEGIN
 	/
 show errors;
 --This trigger is to make sure an order does not assign a broken vehicle to the job.
+--The assigning of orders to vehicles is important due to the fact that it distributes an even workload
+--to all the delivery crew. If a order is assigned to a broken vehicle, then that order will not be doable
+--due to having a non-working vehicle.
 
 INSERT INTO Order1 VALUES (9,'14/MAR/17',NULL,'15/MAR/17','Incomplete',8,3,0,0);
 --Assigning a order to a vehicle that works

@@ -20,13 +20,25 @@ WHERE condition = 'Working');
 
 --The nested query is to show how many vehicles the company has that is currently usable.
 --The query is designed for the boss and delivery team to know which vehicle to assign orders to and who drives it.
+--This will allow the team to know how many trucks to send out per day and how to evenly distribute delivery load.
 
 SELECT A.ID, A.FName, A.LName, A.paycheck, B.ID, B.FName, B.LName, B.paycheck
 FROM Employee A, Employee B
-WHERE A.paycheck < B.paycheck
+WHERE A.paycheck < B.paycheck;
 
 --The query is a self-join query that compares employee paycheck.
 --It may be useful to whoever is in charge of payroll.
+
+SELECT O1.ID, O1.dueDate, O2.ID, O2.dueDate
+FROM Order1 O1, Order1 O2
+WHERE O1.status = 'Incomplete'
+AND O2.status = 'Incomplete'
+ORDER BY dueDate ASC;
+
+--The query is a self-join query that compares the due dates of incomplete orders.
+--This is for a bad scenario where we have many overdue orders. Assuming the angry customer does not cancel
+--and still wants the items, we will use this query to find the overdue orders and complete oldest to newest.
+
 
 SELECT Order1.ID,Item.name, OrderItem.Quantity,Customer.Name
 FROM Order1 JOIN OrderItem ON OrderItem.orderID = Order1.ID
@@ -43,7 +55,7 @@ AND L.paid = 'N'
 GROUP BY E.id;
 
 --The aggregate function query is to determine the sum of all the loans that the employees owe.
---It is most likely going to be used by the boss and whoever is in charge of payroll
+--It is most likely going to be used by the boss and whoever is in charge of payroll.
 
 CREATE VIEW loan_paycheck AS
 	SELECT L.ID, L.amount, L.createDate, L.dueDate, L.paid, E.FName, E.LName, E.paycheck

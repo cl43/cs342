@@ -1,13 +1,15 @@
 CREATE OR REPLACE PROCEDURE itemStock(itemIdIN IN Item.id%type, changeAmountIN IN Item.stock%type) AS
 	currentStock INTEGER;
 	BEGIN
-		SELECT stock INTO currentStock FROM Item WHERE id = itemIdIN;
+		SELECT stock INTO currentStock FROM Item WHERE id = itemIdIN FOR UPDATE;
 		IF currentStock + changeAmountIN < 0 THEN
 			RAISE_APPLICATION_ERROR(-20000, 'Cannot have negative amounts of an item');
+			ROLLBACk;
 		END IF;
 		UPDATE Item
 		SET stock = currentStock + changeAmountIN
 		WHERE id = itemIdIN;
+		COMMIT;
 	END;
 	/
 	show errors;
