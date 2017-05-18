@@ -8,15 +8,27 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+
 /**
- * Created by cl43 on 5/11/2017.
+ * Created by cl43 on 4/29/2017.
+ * @author chrisLi
+ * @version Spring, 2017
  */
+/**
+ * This stateless session bean serves as a RESTful resource handler for the CPDB.
+ * It uses a container-managed entity manager.
+ *
+ * @author kvlinden
+ * @version Spring, 2017
+ */
+
 @Stateless
 @Path("shbs")
 public class SHBSResource {
     @PersistenceContext
     private EntityManager em;
 
+    /*Retrives a specific order by the order id from the order1Entity class via entity manager*/
     @GET
     @Path("order/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -24,6 +36,7 @@ public class SHBSResource {
         return em.find(Order1Entity.class, id);
     }
 
+    /*Retrives all orders that are entries in the entity and return them as a list.*/
     @GET
     @Path("orders")
     @Produces(MediaType.APPLICATION_JSON)
@@ -31,6 +44,9 @@ public class SHBSResource {
         return em.createQuery(em.getCriteriaBuilder().createQuery(Order1Entity.class)).getResultList();
     }
 
+    /*Updates the values of a specific order designated by the input id. Likewise another order1Entity object is made
+    * with the new values for updating. The old object has its values changed to the new one and then EM merges the old one
+    * in order to properly perform an update command.*/
     @PUT
     @Path("order/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -53,6 +69,7 @@ public class SHBSResource {
         return Response.ok(em.find(Order1Entity.class,id), MediaType.APPLICATION_JSON).build();
     }
 
+    /*Creates a new order1Entity by assigning the values through the argument order entity as its values*/
     @POST
     @Path("orders")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -71,6 +88,8 @@ public class SHBSResource {
         return  Response.ok(myOrder, MediaType.APPLICATION_JSON).build();
     }
 
+    /*Removes a order by the designated id, if the id is null, then returns an error message, else it deletes and
+    * returns a confirmation.*/
     @DELETE
     @Path("order/{id}")
     @Produces(MediaType.APPLICATION_JSON)
