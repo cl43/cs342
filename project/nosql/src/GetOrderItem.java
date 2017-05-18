@@ -9,6 +9,7 @@ import java.util.Map;
  */
 public class GetOrderItem {
 
+    /*Main function that loads the database and then prints out the values for orderItem*/
     public static void main(String[] args) throws SQLException {
         KVStore store = KVStoreFactory.getStore(new KVStoreConfig("kvstore", "localhost:5000"));
         LoadDB.load(store);
@@ -16,6 +17,10 @@ public class GetOrderItem {
         store.close();
     }
 
+    /*Creates a key with order as a major key, but it specifically looks for order with id = 1. items is the minor key here
+    * kvstore performs a multi-get to retrieve the values that correspond to what the key requests for. Afterwards, another key
+    * is created where item is the major key, but looks for the input argument of itemid. It then assigns values by searching for the
+    * name and price before sticking it into a string array for printing*/
     public static void output(KVStore store){
         System.out.println("Order ID: 1");
         Key majorKeyPathOnly = Key.createKey(Arrays.asList("order", "1"), Arrays.asList("items"));

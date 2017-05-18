@@ -8,8 +8,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Created by cl43 on 5/9/2017.
+ */
 public class LoadDB {
 
+    /*Main function that creates KVstore, and passes the store as an argument to begin loading the values. It closes
+    *kv store when finished.*/
     public static void main(String[] args) throws SQLException {
         KVStore store = KVStoreFactory.getStore(new KVStoreConfig("kvstore", "localhost:5000")); //Creates the kvstore instance.
         load(store); //Passes the kvstore and begins loading.
@@ -17,7 +22,9 @@ public class LoadDB {
         store.close();
     }
 
-    public static void load(KVStore store) throws  SQLException{ //Creates the jdbc connection and begins loading tables.
+    /*Creates a JDBC connection to Oracle,passes the store and jdbc connection and then loads the
+    *order, item, and orderItem tables, then closes the connection.*/
+    public static void load(KVStore store) throws  SQLException{
         Connection jdbcConnection = DriverManager.getConnection(
                 "jdbc:oracle:thin:@localhost:1521:xe", "cl43", "veggies");
         loadOrder(store, jdbcConnection);
@@ -26,6 +33,9 @@ public class LoadDB {
         jdbcConnection.close();
     }
 
+    /*Loads the orders by taking what was returned from the query and formatting it into a key-value structure.
+    * order is the major key with date and price being the minor key for the two respective querys. After data value is
+    * retrieved and the storing is complete, the result set of queries and jdbc statement is closed*/
     public static void loadOrder(KVStore store, Connection jdbcConnection) throws SQLException{
         Statement jdbcStatement = jdbcConnection.createStatement();
         ResultSet resultSet = jdbcStatement.executeQuery("SELECT id, orderdate, price FROM Order1");
@@ -42,6 +52,9 @@ public class LoadDB {
         jdbcStatement.close();
     }
 
+    /*Loads the items by taking what was returned from the query and formatting it into a key-value structure.
+    * item is the major key with name, price, and stock being the minor key for the two respective querys. After data value is
+    * retrieved and the storing is complete, the result set of queries and jdbc statement is closed*/
     public static void loadItem(KVStore store, Connection jdbcConnection) throws SQLException{
         Statement jdbcStatement = jdbcConnection.createStatement();
         ResultSet resultSet = jdbcStatement.executeQuery("SELECT id, name, price, stock FROM Item");
@@ -62,6 +75,10 @@ public class LoadDB {
         jdbcStatement.close();
     }
 
+    /*Loads the orderItem table by taking what was returned from the query and formatting it into a key-value structure.
+    *Because orderItem deals with reference, we create an arrayList for the keys and values. One arrayList consists of order
+    *being the major key and item as the minor key and vice versa for another arrayList. After data value is retrieved and
+    *the storing is complete, the result set of queries and jdbc statement is closed*/
     public static void loadOrderItem(KVStore store, Connection jdbcConnection) throws SQLException{
         Statement jdbcStatement = jdbcConnection.createStatement();
         ResultSet resultSet = jdbcStatement.executeQuery("SELECT orderID, itemID, quantity FROM OrderItem");
