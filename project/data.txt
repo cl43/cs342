@@ -1,0 +1,33 @@
+Chris Li
+
+CS 342
+
+Prof. Vanderlinden
+
+3/3/17
+
+
+1. The sample data that I put in for data.sql is based on real-life examples of my father's vegetable company.
+However, due to me not knowing all of the details of how the company runs, some of the inputs such as lastname
+on employees,customer addresses, etc. For those, I simply made up those values. Attributes that I would know
+such as firstName on employees is true to the most part. I have added many more entries due to the amount I had
+last time, not being enough. For those additional entries, they're all made up for the sake of filling up the data.
+
+2. I chose 4NF to be the normal form for this schema. Not only is it a very desirable normal form to aim for,
+but it is also simple to implement, and best matches the structures of my tables. I believe my tables do not
+contain and trivial FDs which already achieves BCNF. After that, there is no multi-valued dependencies with the
+left-hand sides being super-keys for the most part which is why I believe it fits under the criteria of 4NF.
+
+3.  Non-Trivial FD:
+
+    Super keys have parenthesis:
+
+    (Employee.ID) -> FName, LName, Position, Paycheck
+    (Customer.ID) -> Name, Address, City, Zip
+    (Loan.ID) -> Amount, createDate, dueDate, Paid
+    (Order.ID) -> orderDate, deliverDate, Price
+    (Vehicle.ID) -> Model, Condition
+    (Item.ID) -> Name, Price, Stock
+
+Due to the FDs not being subsets of their own determinant and no MVD's, it is safe to say that the schema fits the 4NF form.
+    
