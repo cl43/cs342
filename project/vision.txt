@@ -1,0 +1,16 @@
+Chris Li
+CS342
+Prof. Vanderlinden
+Vision Statement
+
+       For my project, I would like to design a database for a vegetable delivery company. The tables would include a 
+list of veggies in stock, employees, customers, vehicles, shipments, and loans from the boss to employees. My potential 
+user is my own father as this vegetable company is actually based on his very own small company in Detroit, therefore I 
+believe the database can be applicable even outside of class.
+
+	The database would also have procedures to deduct and increase the amount of items in the stockhold of the company,
+along with contain safety measures (triggers) to avoid having an impossible situation happen like a delivery being assigned
+to a broken vehicle. That way the project may actually have an outside-of-class functionality.
+
+I also hope to make a web server on this database which would allow users to modify orders and other database values off the
+website that glassfish would provide.
